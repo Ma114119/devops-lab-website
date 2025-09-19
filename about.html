@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>About — Muhammad Anas</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Light Theme (Blue-Gray) */
+      --bg-color: #f8fafc;
+      --text-color: #1e293b;
+      --header-bg: #ffffff;
+      --header-text: #1e40af;
+      --hero-bg: #e2e8f0;
+      --hero-text: #1e40af;
+      --card-bg: #ffffff;
+      --card-border: #cbd5e1;
+      --button-bg: #1e40af;
+      --button-hover: #1e3a8a;
+      --footer-bg: #1e293b;
+      --footer-text: #f8fafc;
+      --accent: #3b82f6;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      color: var(--header-text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.8rem;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    
+    nav a:hover, 
+    nav a.active {
+      background-color: rgba(30, 64, 175, 0.1);
+    }
+    
+    /* Profile Header */
+    .profile-header {
+      background: linear-gradient(to right, var(--hero-bg), #d9e2ec);
+      padding: 3rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--header-bg);
+      box-shadow: var(--shadow);
+    }
+    
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .profile-title {
+      text-align: center;
+    }
+    
+    .profile-title h2 {
+      font-size: 2.5rem;
+      color: var(--hero-text);
+      margin-bottom: 0.5rem;
+    }
+    
+    .profile-title p {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 2rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--header-text);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--header-text);
+      margin: 0.8rem auto;
+      border-radius: 2px;
+    }
+    
+    /* About Sections */
+    .about-section {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--card-border);
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .about-text h3 {
+      color: var(--header-text);
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+    
+    .about-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.03);
+    }
+    
+    /* Personal Details */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .detail-card {
+      background: var(--bg-color);
+      padding: 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+    
+    .detail-card h4 {
+      color: var(--header-text);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .detail-card h4 i {
+      color: var(--accent);
+    }
+    
+    /* Photo Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .gallery-item {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+      height: 250px;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(30, 64, 175, 0.8);
+      color: white;
+      padding: 0.8rem;
+      text-align: center;
+      transform: translateY(100%);
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .skill-category {
+      background: var(--bg-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+    
+    .skill-category h4 {
+      color: var(--header-text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    .skill-item {
+      margin-bottom: 1rem;
+    }
+    
+    .skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    
+    .skill-bar {
+      height: 8px;
+      background: var(--card-border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .skill-level {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+    
+    .social-links a {
+      color: var(--footer-text);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      color: #93c5fd;
+      transform: translateY(-3px);
+    }
+    
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-nav a {
+      color: var(--footer-text);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-nav a:hover {
+      color: #93c5fd;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        gap: 1rem;
+      }
+      
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <h1>Muhammad Anas</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="profile-header">
+    <div class="container">
+      <div class="profile-container">
+        <div class="profile-img">
+          <img src="anas1.jpeg" alt="Muhammad Anas">
+        </div>
+        <div class="profile-title">
+          <h2>Muhammad Anas</h2>
+          <p>Software Engineering Student | Developer | Tech Enthusiast</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="about-section">
+        <h2 class="section-title">About Me</h2>
+        
+        <div class="about-grid">
+          <div class="about-text">
+            <h3>My Journey</h3>
+            <p>I'm Muhammad Anas, a passionate Software Engineering student at COMSATS University Islamabad. My journey in technology began during my college years when I developed a keen interest in programming and problem-solving.</p>
+            <p>Throughout my academic career, I've dedicated myself to mastering various programming languages, development frameworks, and software engineering principles. I believe in continuous learning and pushing the boundaries of what's possible with technology.</p>
+            <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with fellow students and developers.</p>
+          </div>
+          <div class="about-image">
+            <img src="anas2.jpg" alt="Muhammad Anas at University">
+          </div>
+        </div>
+        
+        <div class="details-grid">
+          <div class="detail-card">
+            <h4><i class="fas fa-graduation-cap"></i> Education</h4>
+            <p><strong>BS Software Engineering</strong><br>
+            COMSATS University Islamabad<br>
+            Expected Graduation: 2026<br>
+            CGPA: 3.6/4.0</p>
+          </div>
+          
+          <div class="detail-card">
+            <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+            <p>Adamzai, Akora Khattak, Nowshera, Pakistan</p>
+          </div>
+          
+          <div class="detail-card">
+            <h4><i class="fas fa-birthday-cake"></i> Personal Details</h4>
+            <p><strong>Date of Birth:</strong> January 15, 2002<br>
+            <strong>CNIC:</strong> 17201-0699321-7<br>
+            <strong>Languages:</strong> Urdu, English, Pushto, Arabic</p>
+          </div>
+          
+          <div class="detail-card">
+            <h4><i class="fas fa-envelope"></i> Contact</h4>
+            <p><strong>Email:</strong> m13211911@gmail.com<br>
+            <strong>Phone:</strong> +92 335 0579760<br>
+            <strong>LinkedIn:</strong> linkedin.com/in/muhammad-anas</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-section">
+        <h2 class="section-title">My Skills</h2>
+        
+        <div class="skills-container">
+          <div class="skill-category">
+            <h4>Programming Languages</h4>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Java</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Python</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>JavaScript</span>
+                <span>88%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 88%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>C++</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Web Development</h4>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>HTML/CSS</span>
+                <span>95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 95%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>React</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Node.js</span>
+                <span>82%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 82%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>PHP</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 75%;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Database Technologies</h4>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>PostGre Sql</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>MongoDB</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>MySQL</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 80%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>SQLite</span>
+                <span>88%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 88%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-section">
+        <h2 class="section-title">Photo Gallery</h2>
+        
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="anas1.jpeg" alt="Muhammad Anas Portrait">
+            <div class="gallery-caption">Professional Portrait</div>
+          </div>
+          
+          <div class="gallery-item">
+            <img src="anas2.jpg" alt="Muhammad Anas at University">
+            <div class="gallery-caption">Campus Life</div>
+          </div>
+          
+          <div class="gallery-item">
+            <img src="anas3.jpg" alt="Muhammad Anas Working">
+            <div class="gallery-caption">Working on Projects</div>
+          </div>
+          
+          <div class="gallery-item">
+            <img src="anas4.jpg" alt="Muhammad Anas Presentation">
+            <div class="gallery-caption">Project Presentation</div>
+          </div>
+          
+          <div class="gallery-item">
+            <img src="anas5.jpg" alt="Muhammad Anas with Team">
+            <div class="gallery-caption">Team Collaboration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <div class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        
+        <p>&copy; 2025 Muhammad Anas. All Rights Reserved.</p>
+        <p>COMSATS University Islamabad - Software Engineering</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

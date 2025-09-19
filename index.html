@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Muhammad Anas - Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Light Theme (Blue-Gray) */
+      --bg-color: #f8fafc;
+      --text-color: #1e293b;
+      --header-bg: #ffffff;
+      --header-text: #1e40af;
+      --hero-bg: #e2e8f0;
+      --hero-text: #1e40af;
+      --card-bg: #ffffff;
+      --card-border: #cbd5e1;
+      --button-bg: #1e40af;
+      --button-hover: #1e3a8a;
+      --footer-bg: #1e293b;
+      --footer-text: #f8fafc;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      color: var(--header-text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.8rem;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    
+    nav a:hover, 
+    nav a.active {
+      background-color: rgba(30, 64, 175, 0.1);
+    }
+    
+    /* Profile Header */
+    .profile-header {
+      background: linear-gradient(to right, var(--hero-bg), #d9e2ec);
+      padding: 3rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--header-bg);
+      box-shadow: var(--shadow);
+    }
+    
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .profile-title {
+      text-align: center;
+    }
+    
+    .profile-title h2 {
+      font-size: 2.5rem;
+      color: var(--hero-text);
+      margin-bottom: 0.5rem;
+    }
+    
+    .profile-title p {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-color: var(--hero-bg);
+      color: var(--hero-text);
+      padding: 3rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--button-bg);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+      background-color: var(--button-hover);
+      transform: translateY(-2px);
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 2rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--header-text);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--header-text);
+      margin: 0.8rem auto;
+      border-radius: 2px;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .feature-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--card-border);
+      text-align: center;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-card i {
+      font-size: 2.5rem;
+      color: var(--header-text);
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      color: var(--header-text);
+    }
+    
+    /* Project Section */
+    .project {
+      background-color: var(--card-bg);
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin: 3rem 0;
+      border: 1px solid var(--card-border);
+    }
+    
+    .project-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .project-text h2 {
+      color: var(--header-text);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    .project-text p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .project-features {
+      margin: 1.5rem 0;
+    }
+    
+    .project-features li {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-features li i {
+      color: var(--header-text);
+      margin-right: 0.8rem;
+    }
+    
+    .project-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+    
+    .social-links a {
+      color: var(--footer-text);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      color: #93c5fd;
+      transform: translateY(-3px);
+    }
+    
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-nav a {
+      color: var(--footer-text);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-nav a:hover {
+      color: #93c5fd;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        gap: 1rem;
+      }
+      
+      .project-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <h1>Muhammad Anas</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="profile-header">
+    <div class="container">
+      <div class="profile-container">
+        <div class="profile-img">
+          <img src="anas1.jpeg" alt="Muhammad Anas">
+        </div>
+        <div class="profile-title">
+          <h2>Muhammad Anas</h2>
+          <p>Software Engineering Student & Developer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Creating Innovative Digital Solutions</h2>
+        <p>I'm a passionate software engineering student specializing in web development, blockchain technology, and database management systems.</p>
+        <a href="contact.html" class="btn">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <h2 class="section-title">My Expertise</h2>
+      <div class="features">
+        <div class="feature-card">
+          <i class="fas fa-code"></i>
+          <h3>Web Development</h3>
+          <p>Building responsive and modern websites using React, JavaScript, and cutting-edge web technologies.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-database"></i>
+          <h3>Database Management</h3>
+          <p>Designing efficient database solutions with SQL, MongoDB, and cloud database technologies.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-link"></i>
+          <h3>Blockchain Development</h3>
+          <p>Developing decentralized applications and smart contracts for innovative blockchain solutions.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-content">
+          <div class="project-text">
+            <h2>Blockchain-Based Review System</h2>
+            <p>My final year project is a revolutionary review system leveraging blockchain technology to create a transparent, tamper-proof platform for authentic user reviews.</p>
+            
+            <div class="project-features">
+              <h3>Key Features:</h3>
+              <ul>
+                <li><i class="fas fa-check-circle"></i> Immutable review storage on blockchain</li>
+                <li><i class="fas fa-check-circle"></i> Smart contract-based reward system</li>
+                <li><i class="fas fa-check-circle"></i> Transparent and fraud-resistant platform</li>
+                <li><i class="fas fa-check-circle"></i> User reputation system</li>
+                <li><i class="fas fa-check-circle"></i> Decentralized verification mechanism</li>
+              </ul>
+            </div>
+            
+            <a href="about.html" class="btn">View Project Details</a>
+          </div>
+          <div class="project-image">
+            <img src="BC.jpg" alt="Blockchain Review System">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <div class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        
+        <p>&copy; 2025 Muhammad Anas. All Rights Reserved.</p>
+        <p>COMSATS University Islamabad - Software Engineering</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

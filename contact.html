@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact — Muhammad Anas</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Light Theme (Blue-Gray) */
+      --bg-color: #f8fafc;
+      --text-color: #1e293b;
+      --header-bg: #ffffff;
+      --header-text: #1e40af;
+      --hero-bg: #e2e8f0;
+      --hero-text: #1e40af;
+      --card-bg: #ffffff;
+      --card-border: #cbd5e1;
+      --button-bg: #1e40af;
+      --button-hover: #1e3a8a;
+      --footer-bg: #1e293b;
+      --footer-text: #f8fafc;
+      --accent: #3b82f6;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+        .profile-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--header-bg);
+      box-shadow: var(--shadow);
+    }
+    
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit:fill;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      color: var(--header-text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.8rem;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    
+    nav a:hover, 
+    nav a.active {
+      background-color: rgba(30, 64, 175, 0.1);
+    }
+    
+    /* Profile Header */
+    .profile-header {
+      background: linear-gradient(to right, var(--hero-bg), #d9e2ec);
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .profile-title h2 {
+      font-size: 2.2rem;
+      color: var(--hero-text);
+      margin-bottom: 0.5rem;
+    }
+    
+    .profile-title p {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 2rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--header-text);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--header-text);
+      margin: 0.8rem auto;
+      border-radius: 2px;
+    }
+    
+    /* Contact Sections */
+    .contact-section {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--card-border);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    .contact-info h3 {
+      color: var(--header-text);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--accent);
+      min-width: 30px;
+    }
+    
+    .contact-item-content h4 {
+      margin-bottom: 0.3rem;
+      color: var(--header-text);
+    }
+    
+    .contact-item-content a {
+      color: var(--text-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .contact-item-content a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links-contact {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-links-contact a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--bg-color);
+      color: var(--header-text);
+      font-size: 1.2rem;
+      transition: var(--transition);
+      border: 1px solid var(--card-border);
+    }
+    
+    .social-links-contact a:hover {
+      background: var(--header-text);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Form Styles */
+    .contact-form h3 {
+      color: var(--header-text);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--header-text);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--button-bg);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+      background-color: var(--button-hover);
+      transform: translateY(-2px);
+    }
+    
+    .btn i {
+      margin-right: 0.5rem;
+    }
+    
+    /* Map Section */
+    .map-section {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--card-border);
+    }
+    
+    .map-container {
+      border-radius: 8px;
+      overflow: hidden;
+      height: 300px;
+      background: var(--bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--card-border);
+    }
+    
+    .map-placeholder {
+      text-align: center;
+      color: var(--text-color);
+    }
+    
+    .map-placeholder i {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+    
+    .social-links a {
+      color: var(--footer-text);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      color: #93c5fd;
+      transform: translateY(-3px);
+    }
+    
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-nav a {
+      color: var(--footer-text);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-nav a:hover {
+      color: #93c5fd;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        gap: 1rem;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+        <div class="profile-img">
+          <img src="anas1.jpeg" alt="Muhammad Anas">
+        </div>            
+          <h1>Muhammad Anas</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="profile-header">
+    <div class="container">
+      <div class="profile-title">
+        <h2>Get In Touch</h2>
+        <p>I'm always open to discussing new projects and opportunities</p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="contact-section">
+        <h2 class="section-title">Contact Me</h2>
+        
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-item-content">
+                  <h4>Email</h4>
+                  <a href="mailto:m13211911@gmail.com">m13211911@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div class="contact-item-content">
+                  <h4>Phone</h4>
+                  <a href="tel:+923350579760">+92 335 0579760</a>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <div class="contact-item-content">
+                  <h4>WhatsApp</h4>
+                  <a href="https://wa.me/923350579760">+92 335 0579760</a>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="contact-item-content">
+                  <h4>Location</h4>
+                  <p>Adamzai, Akora Khattak, Nowshera, Pakistan</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <div class="contact-item-content">
+                  <h4>Availability</h4>
+                  <p>Response within 24 hours</p>
+                </div>
+              </div>
+            </div>
+            
+            <h4 style="margin-top: 2rem;">Connect with me</h4>
+            <div class="social-links-contact">
+              <a href="https://www.linkedin.com/in/muhammad-anas-software-engineer" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.facebook.com/" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://twitter.com/" title="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <h3>Send a Message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="your.email@example.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="project">Project Inquiry</option>
+                  <option value="collaboration">Collaboration</option>
+                  <option value="job">Job Opportunity</option>
+                  <option value="question">General Question</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="How can I help you?" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="map-section">
+        <h2 class="section-title">Location</h2>
+        
+        <div class="map-container">
+          <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <p>Adamzai, Akora Khattak, Nowshera, Pakistan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/muhammad-anas-software-engineer"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/"><i class="fab fa-github"></i></a>
+          <a href="mailto:m13211911@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/923350579760"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
+        <div class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        
+        <p>&copy; 2025 Muhammad Anas. All Rights Reserved.</p>
+        <p>COMSATS University Islamabad - Software Engineering</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! This is a demo form. In a real application, your message would be sent to Muhammad Anas.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
